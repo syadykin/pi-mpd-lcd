@@ -1,9 +1,10 @@
 #!/bin/sh
 ### BEGIN INIT INFO
+# Provides: pi-mpd-lcd
 # Required-Start: mpd
 # Required-Stop:
-# Default-Start: S
-# Default-Stop: 0 6
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
 # Short-Description: Start mpd nodejs lcd daemon
 # Description:
 ### END INIT INFO
@@ -30,15 +31,15 @@ restart(){
 
 case "$1" in  
         start)
-                echo "Start service SERVICE_NAME"
+                echo "Start service pi-mpd-lcd"
                 start
                 ;;
         stop)
-                echo "Stop service SERVICE_NAME"
+                echo "Stop service pi-mpd-lcd"
                 stop
                 ;;
         restart)
-                echo "Restart service SERVICE_NAME"
+                echo "Restart service pi-mpd-lcd"
                 restart
                 ;;
         *)
