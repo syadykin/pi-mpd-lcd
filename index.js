@@ -1,5 +1,5 @@
 // daemonize
-require('daemon')();
+//require('daemon')();
 
 var _ = require('lodash');
 var async = require('async');

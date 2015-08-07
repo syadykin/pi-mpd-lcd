@@ -1,0 +1,48 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Required-Start: mpd
+# Required-Stop:
+# Default-Start: S
+# Default-Stop: 0 6
+# Short-Description: Start mpd nodejs lcd daemon
+# Description:
+### END INIT INFO
+
+. /lib/lsb/init-functions
+
+# result of whereis forever or whereis node
+export PATH=$PATH:/usr/local/bin  
+# result of whereis node_modules
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+
+
+start(){  
+        forever start /home/pi/app/index.js
+}
+
+stop(){  
+        forever stop /home/pi/app/index.js
+}
+
+restart(){  
+        forever restart /home/pi/app/index.js
+}
+
+case "$1" in  
+        start)
+                echo "Start service SERVICE_NAME"
+                start
+                ;;
+        stop)
+                echo "Stop service SERVICE_NAME"
+                stop
+                ;;
+        restart)
+                echo "Restart service SERVICE_NAME"
+                restart
+                ;;
+        *)
+                echo "Usage: $0 {start|stop|restart}"
+                exit 1
+                ;;
+esac  
